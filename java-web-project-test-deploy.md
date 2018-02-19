@@ -1,7 +1,7 @@
 ---
-title:  deploy java project
+title:  JAVA WAR包部署
 date: 2017-07-27 20:06:00
-tags: [deploy, Linux]
+tags: [JAVA, 部署]
 categories:  JAVA
 ---
 

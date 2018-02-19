@@ -1,8 +1,8 @@
 ---
-title:  常用
+title:  常用命令
 date: 2017-07-27 20:43:00
-tags: [command]
-categories:  DEVEPOMENT
+tags: [常用]
+categories:  常用
 ---
 
 ### 常用命令

@@ -1,8 +1,8 @@
 ---
-title:  nginx static resource with php install
+title:  Nginx静态服务安装
 date: 2017-09-30 16:29:00
-tags: [nginx, static]
-categories:  NGINX
+tags: [Nginx, 静态服务]
+categories:  LINUX
 ---
 
 # nginx-static-resource-with-php

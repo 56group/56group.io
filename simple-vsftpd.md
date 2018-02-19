@@ -1,8 +1,8 @@
 ---
-title:  simple vsftpd install
+title:  Vsftp简单安装
 date: 2017-09-30 16:29:00
-tags: [vsftpd, simple]
-categories:  VSFTPD
+tags: [Vsftpd, 安装]
+categories:  Linux
 ---
 
 # simple-vsftpd

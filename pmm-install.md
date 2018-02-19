@@ -1,8 +1,8 @@
 ---
-title: PMM install
+title: PMM数据库监控安装
 date: 2017-05-11 13:53:00
-tags: [mysql, mongodb, monitor]
-categories: DB
+tags: [数据库, 监控]
+categories: Database
 ---
 
 ### [PMM INSTALL](https://www.percona.com/doc/percona-monitoring-and-management/deploy/index.html)

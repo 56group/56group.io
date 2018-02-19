@@ -1,8 +1,8 @@
 ---
-title: oracle jdbc
-date: 2017-07-2<F7>7 20:00:00
-tags: [oracle, maven]
-categories: MAVEN
+title: Java的Oracle JDBC链接
+date: 2017-07-27 20:00:00
+tags: [JAVA, JDBC, Oracle]
+categories: JAVA
 ---
 
 ### MAVEN oracle jdbc

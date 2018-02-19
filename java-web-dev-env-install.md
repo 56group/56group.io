@@ -1,7 +1,7 @@
 ---
-title:  JAVA WEB DEV ENV INSTALL
+title:  JAVA项目开发环境安装
 date: 2017-07-27 20:35:00
-tags: [java, dev]
+tags: [JAVA, 环境安装]
 categories:  JAVA
 ---
 

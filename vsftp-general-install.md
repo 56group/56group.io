@@ -1,8 +1,8 @@
 ---
-title:  VSFTP INSTALL
+title:  Vsftp通用安装
 date: 2017-07-27 20:33:00
-tags: [vsftp, Linux]
-categories:  SERVICES
+tags: [Vsftp, 安装]
+categories:  Linux
 ---
 
 ### VSFTP 普通安装

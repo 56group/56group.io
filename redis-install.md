@@ -1,8 +1,8 @@
 ---
-title:  redis install and allow remote
+title:  Redis安装+远程访问
 date: 2017-12-02 14:36:00
-tags: [redis, install]
-categories:  linux
+tags: [Redis, 安装]
+categories:  Linux
 ---
 ### Redis Install
 

@@ -1,8 +1,8 @@
 ---
-title:  linux make tomcat service auto start
+title:  Linux系统Tomcat服务自启动
 date: 2017-09-27 16:17:00
-tags: [tomcat, service]
-categories:  TOMCAT
+tags: [Tomcat, 自启动]
+categories:  Linux
 ---
 
 ### Tomcat Install

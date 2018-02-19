@@ -1,8 +1,8 @@
 ---
-title:  linux make nginx service auto start
+title:  Linux系统Nginx服务自启动
 date: 2017-09-27 16:29:00
-tags: [nginx, service]
-categories:  NGINX
+tags: [Nginx, 自启动]
+categories:  Linux
 ---
 ### Make Nginx Service
 

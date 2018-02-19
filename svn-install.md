@@ -1,8 +1,8 @@
 ---
-title: svninstall
+title: SVN服务安装
 date: 2017-07-21 14:39:00
-tags: [svn, vcs]
-categories: VCS
+tags: [SVN, 安装]
+categories: Linux
 ---
 
 ### [SVN INSTALL](http://subversion.apache.org)

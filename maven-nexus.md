@@ -1,8 +1,8 @@
 ---
-title:  maven nexus
+title:  Maven的nexus配置
 date: 2017-07-27 20:02:00
-tags: [maven, nexus]
-categories:  MAVEN
+tags: [JAVA, Maven, nexus]
+categories:  JAVA
 ---
 
 ### maven nexus

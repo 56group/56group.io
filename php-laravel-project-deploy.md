@@ -1,8 +1,8 @@
 ---
-title:  php laravel project deploy evn install
+title:  Linux系统PHP Laravel项目部署
 date: 2017-11-21 13:25:00
-tags: [project, deploy, laravel]
-categories:  project
+tags: [PHP, Laravel, 部署]
+categories:  PHP
 ---
 
 # php-laravel-project-deploy
