@@ -24,6 +24,12 @@ mysql> CREATE USER 'dummy'@'localhost';
 CREATE SCHEMA `new_schema` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 ```
 
+##### MySQL逻辑备份
+
+```
+mysqldump -h HOST -u USER -pPASS DB_NAME > DB_NAME_`date "+%Y_%m_%d_%H_%M_%S"`.sql
+```
+
 ##### MongoDB Create document
 
 ```
