@@ -109,3 +109,8 @@ mvn archetype:generate -DarchetypeCatalog=local -DarchetypeGroupId=org.apache.ma
 ```
 nohup command > PATH_TO_LOG 2>&1 &
 ```
+##### Redmine
+
+```
+shell> ruby bin/rails server webrick -e production -d -b 127.0.0.1 -p 3000
+```
