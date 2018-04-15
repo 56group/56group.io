@@ -35,6 +35,8 @@ mysqldump -h HOST -u USER -pPASS DB_NAME > DB_NAME_`date "+%Y_%m_%d_%H_%M_%S"`.s
 ```
 # mysql更改列的字符集
 mysql> ALTER TABLE table_name CHANGE col_name col_name VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+# mysql表列字符集查看
+mysql> SHOW FULL COLUMNS FROM table_name;
 ```
 
 ##### MongoDB Create document
