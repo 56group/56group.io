@@ -28,6 +28,7 @@ categories: PHP
 # php.ini配置更改
 extension=php_openssl.dll
 extension=php_pdo_mysql.dll
+extension=php_fileinfo.dll
 extension_dir = "./ext"
 ```
 ##### MySQL数据库安装
