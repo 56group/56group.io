@@ -16,6 +16,7 @@ categories: PHP
 [MySQL 5.7.22](https://dev.mysql.com/downloads/mysql/5.7.html#downloads)
 [VC++ 2012](https://www.microsoft.com/en-us/download/details.aspx?id=30679)
 [VC++ 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
+[xxfpm](https://github.com/78/xxfpm)
 
 > PHP和Nginx和MySQL下载压缩包,解压到对应的安装目录, VC++下载对应服务器版本的对应版本,然后正常安装
 
@@ -202,6 +203,11 @@ D:/lxxhd/php-5.6.36/php-cgi.exe -b 127.0.0.1:9000 -c D:/lxxhd/php-5.6.36/php.ini
 ```
 - 6. 重启nginx服务(可以通过进程管理停止nginx服务,然后运行nginx.exe),访问**http://localhost**查看phpinfo()信息
 
+##### 安装xxfpm
+
+- 1. 复制在的xxfpm的bin目录下的[pthreadGC2.dll](https://github.com/78/xxfpm/blob/master/bin/pthreadGC2.dll "pthreadGC2.dll")到c:/windows/system32目录下
+- 2. 复制[xxfpm.exe](https://github.com/78/xxfpm/blob/master/bin/xxfpm.exe "xxfpm.exe")到下面的bat和RunHiddenConsole.exe同一个目录
+
 ##### 编写bat脚本
 
 > 下载[RunHiddenConsole.exe](https://redmine.lighttpd.net/attachments/660/RunHiddenConsole.zip)
@@ -219,7 +225,7 @@ REM 输出状态
 ECHO Starting PHP FastCGI...
 REM 启动php-cgi -b 端口 -c php.ini位置
 REM %php_home%为获取上面set的php_home的值
-RunHiddenConsole %php_home%php-cgi.exe -b 127.0.0.1:9000 -c %php_home%php.ini
+RunHiddenConsole xxfpm "%php_home%php-cgi.exe -c %php_home%php.ini" -n 5 -i 127.0.0.1 -p 9000
 REM 输出状态
 ECHO Starting nginx...
 REM 启动Nginx -p Nginx的根目录
