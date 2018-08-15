@@ -43,7 +43,7 @@ mysql> SHOW FULL COLUMNS FROM table_name;
 
 ```
 use mydb # 插入数据才能 show dbs
-``
+```
 
 ##### MongoDB Permission config
 
