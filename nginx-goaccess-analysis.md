@@ -9,7 +9,7 @@ categories:  NGINX
 #####安装goaccess
 
 ```
-
+# tar.gz安装
 ```
 
 ##### 配置goaccess
