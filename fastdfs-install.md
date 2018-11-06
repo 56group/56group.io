@@ -142,6 +142,75 @@ shell> vi conf/nginx.conf
 shell> /usr/local/nginx/sbin/nginx # 启动
 # 访问http://39.105.88.191/M00/00/00/rBF7wlve7MWAYkBMAAFyMfWGgG0950.jpg
 ```
+##### Nginx权限配置
+
+```
+# if use token to anti-steal
+# default value is false (0)
+http.anti_steal.check_token=true
+
+# token TTL (time to live), seconds
+# default value is 600
+http.anti_steal.token_ttl=1800
+
+# secret key to generate anti-steal token
+# this parameter must be set when http.anti_steal.check_token set to true
+# the length of the secret key should not exceed 128 bytes
+http.anti_steal.secret_key=FastDFS1234567890
+
+# return the content of the file when check token fail
+# default value is empty (no file sepecified)
+http.anti_steal.token_check_fail=/etc/fdfs/anti-steal.jpg # 可以更改为自定义图片
+```
+##### token代码
+
+```
+package example.client;
+
+import org.csource.common.MyException;
+import org.csource.fastdfs.ProtoCommon;
+import org.csource.fastdfs.StorageClient1;
+
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.time.Instant;
+
+public class NginxAccessTokenUtil {
+
+    public static String createToken(String filePath, String secretKey) {
+        int ts = (int) Instant.now().getEpochSecond();
+        String token = null;
+
+        try {
+            token = ProtoCommon.getToken(getFilename(filePath), ts, secretKey);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("?token=").append(token);
+        builder.append("&ts=").append(ts);
+
+        return builder.toString();
+    }
+
+    public static String getFilename(String fileId){
+        String[] results = new String[2];
+        StorageClient1.split_file_id(fileId, results);
+
+        return results[1];
+    }
+}
+
+# create token为?token=544c170e756fad7887c4fa9d21908d01&ts=1541409463,直接添加到访问URL后面
+# 访问的地址更改为 http://IP/group1/M00/00/00/rBF7wlve7MWAYkBMAAFyMfWGgG0950.jpg?token=544c170e756fad7887c4fa9d21908d01&ts=1541409463
+```
+[代码](http://gitlab.56team.com/56group/fastdfs-quickstart)
+
 [参考](https://www.cnblogs.com/chiangchou/p/fastdfs.html)
 
 ##### tracker.conf (调整如下配置项)
@@ -315,7 +384,7 @@ storage_server_port=23000
 # set to false when uri like /M00/00/00/xxx
 # set to true when uri like ${group_name}/M00/00/00/xxx, such as group1/M00/xxx
 # default value is false
-url_have_group_name = false # 如果访问路径中有group**需要为true
+url_have_group_name = true # 如果访问路径中有group**需要为true
 
 # store_path#, based 0, if store_path0 not exists, it's value is base_path
 # the paths must be exist
@@ -371,7 +440,7 @@ http {
             index  index.html index.htm;
         }
        
-        location ~/M00 {
+        location ~/group([0-9])/M00 {
             ngx_fastdfs_module;
         }
 
