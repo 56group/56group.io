@@ -1,5 +1,5 @@
 ---
-title:  常用代码
+title:  Java常用代码
 date: 2018-10-11 15:39:00
 tags: [常用, JAVA, CODE]
 categories:  常用

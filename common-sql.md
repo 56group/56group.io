@@ -1,7 +1,7 @@
 ---
-title:  常用SQL
+title:  SQL常用代码
 date: 2018-09-20 14:27:00
-tags: [常用, SQL]
+tags: [常用, SQL, CODE]
 categories:  常用
 ---
 ### 常用SQL
