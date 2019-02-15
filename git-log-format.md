@@ -19,7 +19,7 @@ categories:  GIT
 
 * First line cannot be longer than 70 characters, second line is always blank and other lines should be wrapped at 80 characters. The type and scope should always be lowercase as shown below
 
-##### <type>的值
+##### "<type>"的值
 
 *   **feat** (new feature for the user, not a new feature for build script)
 *   **fix** (bug fix for the user, not a fix to a build script)
@@ -29,7 +29,7 @@ categories:  GIT
 *   **test** (adding missing tests, refactoring tests; no production code change)
 *   **chore** (updating grunt tasks etc; no production code change)
 
-##### <scope>的值
+##### "<scope>"的值
 
 *   init
 *   runner
@@ -41,12 +41,12 @@ categories:  GIT
 
 > The `<scope>` can be empty (eg. if the change is a global or difficult to assign to a single component), in which case the parentheses are omitted. In smaller projects such as Karma plugins, the `<scope>` is empty.
 
-##### <body>的值
+##### "<body>"的值
 
 *   uses the imperative, present tense: “change” not “changed” nor “changes”
 *   includes motivation for the change and contrasts with previous behavior
 
-##### <footer>的值
+##### "<footer>"的值
 
 Closed issues should be listed on a separate line in the footer prefixed with "Closes" keyword like this:
 
