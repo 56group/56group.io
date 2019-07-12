@@ -99,6 +99,11 @@ shell> mongodump -d YOUR_DB_NAME -o YOUR_STORE_PATH
 shell> tar -cvf YOUR_STORE_NAME_`date "+%Y-%m-%d"`.tar.gz YOUR_STORE_PATH/YOUR_DB_NAME/
 ```
 
+##### MongoDB恢复
+
+```
+shell> mongorestore -d YOUR_DB_NAME -o YOUR_DUMP_PATH
+```
 
 ##### PHP Start cgi
 
