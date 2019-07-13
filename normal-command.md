@@ -105,6 +105,16 @@ shell> tar -cvf YOUR_STORE_NAME_`date "+%Y-%m-%d"`.tar.gz YOUR_STORE_PATH/YOUR_D
 shell> mongorestore -d YOUR_DB_NAME -o YOUR_DUMP_PATH
 ```
 
+##### MongoDB日志文件处理
+
+```
+shell> mongo
+mongo> use admin
+mongo> db.runCommand({logRotate: 1})
+mongo> exit
+shell> rm -rf mongo.log.DATE
+```
+
 ##### PHP Start cgi
 
 ```
