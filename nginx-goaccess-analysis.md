@@ -1,7 +1,7 @@
 ---
 title:  Nginx日志分析
 date: 2018-07-02 17:05:00
-tags: [Nginx, Log, GoAccess]
+tags: [NGINX, LOG, GOACCESS]
 categories:  NGINX
 ---
 ### Nginx日志分析

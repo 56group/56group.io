@@ -1,7 +1,7 @@
 ---
 title: nginx配置demo
 date: 2018-08-15 08:36:00
-tags: [Nginx, 配置]
+tags: [NGINX, 配置]
 categories: Nginx
 ---
 

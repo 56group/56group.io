@@ -1,7 +1,7 @@
 ---
 title: PHP Windows发布环境安装
 date: 2018-06-21 13:03:00
-tags: [PHP, Windows, 环境]
+tags: [PHP, WINDOWS, 环境]
 categories: PHP
 ---
 ### Windows PHP发不环境安装

@@ -1,7 +1,7 @@
 ---
 title:  MySQL常用状态查看
 date: 2017-10-03 09:56:00
-tags: [MySQL, 常用]
+tags: [MYSQL, 常用]
 categories:  Database
 ---
 

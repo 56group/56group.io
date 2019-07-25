@@ -1,7 +1,7 @@
 ---
 title: Java的Oracle JDBC链接
 date: 2017-07-27 20:00:00
-tags: [JAVA, JDBC, Oracle]
+tags: [JAVA, JDBC, ORACLE]
 categories: JAVA
 ---
 

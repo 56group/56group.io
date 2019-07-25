@@ -1,7 +1,7 @@
 ---
 title:  Nginx静态服务安装
 date: 2017-09-30 16:29:00
-tags: [Nginx, 静态服务]
+tags: [NGINX, 静态服务]
 categories:  LINUX
 ---
 

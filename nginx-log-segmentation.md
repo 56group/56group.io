@@ -1,7 +1,7 @@
 ---
 title:  Nginx日志分割
 date: 2017-10-03 09:56:00
-tags: [Nginx, Log]
+tags: [NGINX, LOG]
 categories:  Linux
 ---
 

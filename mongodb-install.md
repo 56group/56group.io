@@ -1,7 +1,7 @@
 ---
 title: MongoDB安装
 date: 2018-08-15 08:29:00
-tags: [MongoDB, 环境]
+tags: [MONGODB, 环境]
 categories: MongoDB
 ---
 

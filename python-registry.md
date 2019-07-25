@@ -1,7 +1,7 @@
 ---
 title:  Python Registry文件代码
 date: 2018-02-09 21:25:00
-tags: [Python, Registry]
+tags: [PYTHON, REGISTRY]
 categories:  Python
 ---
 

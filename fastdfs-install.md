@@ -1,7 +1,7 @@
 ---
 title:  FasfDFS安装
 date: 2018-11-04 15:18:00
-tags: [FastDFS, 安装]
+tags: [FASTDFS, 安装]
 categories:  Linux
 ---
 

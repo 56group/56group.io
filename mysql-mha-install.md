@@ -1,7 +1,7 @@
 ---
 title: MySQL MHA安装
 date: 2019-07-05 17:00:00
-tags: [MySQL, Linux, 安装]
+tags: [MYSQL, LINUX, 安装]
 categories: MYSQL
 ---
 

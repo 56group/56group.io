@@ -1,7 +1,7 @@
 ---
 title:  新安装Tomcat
 date: 2019-04-17 10:08:00
-tags: [Tomcat, 安装]
+tags: [TOMCAT, 安装]
 categories:  Tomcat
 ---
 

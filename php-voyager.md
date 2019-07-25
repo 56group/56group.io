@@ -1,7 +1,7 @@
 ---
 title:  PHP voyager项目安装
 date: 2018-06-13 18:59:00
-tags: [PHP, voyager, quickstart]
+tags: [PHP, VOYAGER, QUICKSTART]
 categories:  PHP
 ---
 

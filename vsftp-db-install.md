@@ -1,7 +1,7 @@
 ---
 title:  Vsftp数据库配置安装
 date: 2017-07-27 20:18:00
-tags: [vsftp, 安装]
+tags: [VSFTP, 安装]
 categories:  Linux
 ---
 

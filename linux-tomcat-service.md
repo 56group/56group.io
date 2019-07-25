@@ -1,7 +1,7 @@
 ---
 title:  Linux系统Tomcat服务自启动
 date: 2017-09-27 16:17:00
-tags: [Tomcat, 自启动]
+tags: [TOMCAT, 自启动]
 categories:  Linux
 ---
 

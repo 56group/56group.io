@@ -1,7 +1,7 @@
 ---
 title:  Vsftp简单安装
 date: 2017-09-30 16:29:00
-tags: [Vsftpd, 安装]
+tags: [VSFTP, 安装]
 categories:  Linux
 ---
 

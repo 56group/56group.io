@@ -1,7 +1,7 @@
 ---
 title:  Linux系统PHP Laravel项目部署
 date: 2017-11-21 13:25:00
-tags: [PHP, Laravel, 部署]
+tags: [PHP, LARAVEL, 部署]
 categories:  PHP
 ---
 

@@ -1,7 +1,7 @@
 ---
 title:  JQuery.validate验证规则
 date: 2019-03-01 17:23:00
-tags: [JQuery, 表单验证]
+tags: [JQUERY, 表单验证]
 categories:  JQuery
 ---
 

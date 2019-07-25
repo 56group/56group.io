@@ -1,7 +1,7 @@
 ---
 title: Nginx Tomcat负载均衡安装
 date: 2019-07-05 17:00:00
-tags: [Nginx, Tomcat, 安装]
+tags: [NGINX, TOMCAT, 安装]
 categories: Tomcat
 ---
 

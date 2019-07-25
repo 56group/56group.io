@@ -1,7 +1,7 @@
 ---
 title:  Tomcat项目部署环境安装
 date: 2017-09-30 16:29:00
-tags: [Tomcat, 环境]
+tags: [TOMCAT, 环境]
 categories:  Linux
 ---
 

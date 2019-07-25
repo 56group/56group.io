@@ -1,7 +1,7 @@
 ---
 title:  Linux系统Tomcat项目部署
 date: 2018-02-26 10:22:00
-tags: [Tomcat, 部署]
+tags: [TOMCAT, 部署]
 categories:  Tomcat
 ---
 
@@ -150,7 +150,8 @@ shell> ./deploy.sh
 ```
 #!/bin/bash
 
-# 下面这个地址是描述了tomcat的context可以如何配置,是这个脚本的理论基础
+# 下面这个地址是描述了tomcat的context可以如何配置,是这个脚本的理论基础
+
 # https://tomcat.apache.org/tomcat-8.5-doc/config/context.html
 
 app_name=$1

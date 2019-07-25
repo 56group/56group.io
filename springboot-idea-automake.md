@@ -1,7 +1,7 @@
 ---
 title: SpringBoot IDEA热部署
 date: 2018-06-11 15:46:00
-tags: [springboot, idea]
+tags: [SPRINGBOOT, IDEA]
 categories: IDE
 ---
 
