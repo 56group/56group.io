@@ -40,6 +40,8 @@ CLIEXEC=/usr/local/redirs/src/redis-cli # 更改脚本路径
 shell> vi /etc/redis/6379.conf
 # 注释bind 127.0.0.1
 # 更改protected-mode为no
+# 守护进程运行
+# 更改daemonize为yes
 shell> service redis stop
 shell> service redis start
 ```

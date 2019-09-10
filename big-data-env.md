@@ -203,7 +203,7 @@ shell> chkconfig httpd on
 ##### 安装依赖库
 
 ```shell
-shell> yum install libtirpc-devel* -y
+shell> yum install libtirpc-devel* openssl openssl-devel python-devel -y
 shell> yum -y install nfs*
 ```
 
