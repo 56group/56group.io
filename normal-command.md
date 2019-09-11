@@ -134,6 +134,13 @@ mvn archetype:generate -DarchetypeCatalog=local -DarchetypeGroupId=org.apache.ma
 nohup command > PATH_TO_LOG 2>&1 &
 ```
 
+##### Hexo启动
+
+```
+shell> cd /usr/local/blog
+shell> nohup hexo server > hexo.log 2>&1 &
+```
+
 ##### Redmine
 
 ```

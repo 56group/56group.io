@@ -31,3 +31,22 @@ categories:  Tomcat
 # 更改为新的端口,原端口为8009
 <Connector port="8010" protocol="AJP/1.3" redirectPort="8443" />
 ```
+
+##### 更改/etc/profile.d/tomcat.sh
+
+```
+########## tomcat3 ###########
+CATALINA3_BASE=/usr/local/tomcat_leader
+CATALINA3_HOME=/usr/local/tomcat_leader
+TOMCAT3_HOME=/usr/local/tomcat_leader
+export CATALINA3_BASE CATALINA3_HOME TOMCAT3_HOME
+########## tomcat3 ############
+```
+
+##### 更改catalina.sh
+
+```
+# 在#!/bin/bash下面加
+export CATALINA_BASE=$CATALINA3_BASE
+export CATALINA_HOME=$CATALINA3_HOME
+```
