@@ -46,7 +46,14 @@ export CATALINA3_BASE CATALINA3_HOME TOMCAT3_HOME
 ##### 更改catalina.sh
 
 ```
-# 在#!/bin/bash下面加
+# 在# OS specific support.  $var _must_ be set to either true or false下面加
 export CATALINA_BASE=$CATALINA3_BASE
 export CATALINA_HOME=$CATALINA3_HOME
 ```
+
+### 整体的更改过程
+
+- 更改新Tomcat的环境变量
+- 更改新Tomcat的配置端口(3个)
+- 更改新Tomcat的bin目录下的catalina.sh
+

@@ -216,14 +216,29 @@ shell> mv *.repo bak
 # 上传新的yum源
 ```
 
-##### centos7.3.repo
+##### centos7.repo
 
 ```
-[centos7.3]
-name=centos7.3
-baseurl=http://10.1.240.11/centos7.3
+[centos7]
+name=centos7
+baseurl=http://10.1.240.11/centos7
 enabled=1
 gpgcheck=0
+```
+
+##### ambari.repo
+
+```
+```
+
+##### HDP.repo
+
+```
+```
+
+##### HDP-UTILS.repo
+
+```
 ```
 
 ##### 配置数据库(ambari机器)
@@ -245,4 +260,28 @@ mysql> source Ambari-DDL-MySQL-CREATE.sql;
 ```shell
 shell> mkdir /usr/share/java
 shell> mv mysql-connector-java-6.0.6.jar  /usr/share/java/
+```
+
+##### 解压对应包
+
+```shell
+shell> mv HDP-...tar.gz /var/www/html
+shell> mv HDP-UTILS...tar.gz /var/www/html
+shell> mv ambari-...tar.gz /var/www/html
+shell> cd /var/www/html
+shell> tar zxvf HDP-...tar.gz
+shell> tar zxvf HDP-UTILS...tar.gz
+shell> tar zxvf ambari-...tar.gz
+```
+
+##### http服务
+
+```
+shell> cd /var/www/html
+shell> chown -R www.www .
+```
+
+##### 环境检测
+
+```shell
 ```

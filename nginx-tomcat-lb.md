@@ -77,28 +77,25 @@ shell> cp *.jar $CATALINA_HOME/lib
 # 配置tomcat
 shell> vi $CATALINA_HOME/conf/context.xml
 
-#<Context>
-
-# <Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
-
-#  memcachedNodes="n1:localhost:11211"
-
-#  failoverNodes="n1"
-
-#  requestUriIgnorePattern=".*\.(ico|png|gif|jpg|css|js)$" #transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.Javolution#TranscoderFactory"/>
-
-#</Context>
+<Context>
+<Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+ memcachedNodes="n1:localhost:11211"
+ failoverNodes="n1"
+ requestUriIgnorePattern=".*\.(ico|png|gif|jpg|css|js)$"  transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.Javolu tionTranscoderFactory"/>
+ 
+ // 下面是注释failoverNodes的
+ <Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+ memcachedNodes="n1:localhost:11211"
+ #failoverNodes="n1"
+ requestUriIgnorePattern=".*\.(ico|png|gif|jpg|css|js)$"  transcoderFactoryClass="de.javakaffee.web.msm.serializer.javolution.Javolu tionTranscoderFactory"/>
+</Context>
 
 # 配置log
-
 shell> vi $CATALINA_HOME/conf/logging.properties
-
 # de.javakaffee.web.msm.level = FINE
-
 # net.spy.memcached.level = WARNING
 
 shell> vi $CATALINA_HOME/bin/catalina.sh
-
 # CATALINA_OPTS="-Dnet.spy.log.LoggerImpl=net.spy.memcached.compat.log.SunLogger"
 ```
 
@@ -108,39 +105,25 @@ shell> vi $CATALINA_HOME/bin/catalina.sh
 # tomcat
 
 # 236
-
 shell> tar -cf tomcat.tar apache-tomcat-8.5.4/
-
 shell> scp tomcat.tar root@222.26.224.237:/usr/local/
 
 # 237
-
 shell> cd /usr/local
-
 shell> tar -xvf tomcat.tar
-
 shell> ln -s /usr/local/apache-tomcat-8.5.4 /usr/local/tomcat
-
 shell> rm -rf tomcat.tar
 
 # jdk
-
 shell> tar zxvf jdk-8u65-linux-x64.gz -C /usr/local/
-
 shell> ln -s /usr/local/jdk1.8.0_65/ /usr/local/jdk
 
 # 配置JDK和Tomcat的环境变量
-
 shell> vi /etc/profile.d/javadev.sh
-
 # export JAVA_HOME=/usr/local/jdk
-
 # export CATALINA_HOME=/usr/local/tomcat
-
 # export PATH=$JAVA_HOME/bin:$CATALINA_HOME/bin:$PATH
-
 shell> source /etc/profile.d/javadev.sh`
-
 ```
 
 ### 配置LB
@@ -155,7 +138,7 @@ shell> vi nginx.conf # 配置见附加
 
 ```
 # 236
-shell> /usr/loca/memcached/bin/memcached -d -m 1024 -u root -c 1024 -p 11211 /tmp/memcached.pid
+shell> /usr/local/memcached/bin/memcached -d -m 1024 -u root -c 1024 -p 11211 /tmp/memcached.pid
 
 # 236
 shell> /usr/local/tomcat/bin/startup.sh
@@ -187,75 +170,49 @@ shell> /usr/local/nginx/sbin/nginx
 ##### nginx配置
 
 ```
-
 worker_processes 1;
 
 error_log logs/error.log;
-
 error_log logs/error.log notice;
-
 error_log logs/error.log info;
 
 pid logs/nginx.pid;
 
 events {
-
  worker_connections 1024;
-
 }
 
 http {
-
  include  mime.types;
 
  default_type application/octet-stream;
 
  log_format main '$remote_addr - $remote_user [$time_local] "$request" '
-
  '$status $body_bytes_sent "$http_referer" '
-
  '"$http_user_agent" "$http_x_forwarded_for"';
-
  access_log logs/access.log main;
-
-[200GANA-636](media/14682202876530/200GANA-636.mp4)
-
  sendfile on;
-
  keepalive_timeout 65;
-
  upstream localhost {
-
- server 222.26.224.237:8080;
-
- server 222.26.224.236:8080;
-
+   server 222.26.224.237:8080;
+   server 222.26.224.236:8080;
  }
 
  server {
+   listen  80;
+   server_name localhost;
+   charset utf-8;
+   
+   location / {
+     proxy_pass http://localhost;
+   }
 
- listen  80;
+   error_page  500 502 503 504 /50x.html;
 
- server_name localhost;
-
- charset utf-8;
-
- location / {
-
- proxy_pass http://localhost;
-
+   location = /50x.html {
+     root  html;
+   }
  }
-
- error_page  500 502 503 504 /50x.html;
-
- location = /50x.html {
-
- root  html;
-
- }
-
- }
-
 }
 
 ```
