@@ -34,3 +34,9 @@ FROM
 WHERE
     A.repairGroupId IS NULL
 ```
+
+##### 查询一个数据库有多少个表
+
+```sql
+mysql> SELECT COUNT(*) TABLES, table_schema FROM information_schema.TABLES WHERE table_schema = '数据库名';
+```
