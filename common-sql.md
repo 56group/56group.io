@@ -40,3 +40,10 @@ WHERE
 ```sql
 mysql> SELECT COUNT(*) TABLES, table_schema FROM information_schema.TABLES WHERE table_schema = '数据库名';
 ```
+
+##### 解除和打开安全更新
+
+```sql
+mysql> SET SQL_SAFE_UPDATES=0; // 解除
+mysql> SET SQL_SAFE_UPDATES=1; // 打开
+```
