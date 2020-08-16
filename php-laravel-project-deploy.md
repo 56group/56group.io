@@ -81,6 +81,7 @@ transaction-isolation = READ-COMMITTED
 max_connections = 1000
 log-queries-not-using-indexes
 log_throttle_queries_not_using_indexes = 10
+default-time-zone = '+8:00'
 
 # INNODB
 innodb_strict_mode=1
