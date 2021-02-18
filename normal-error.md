@@ -1,4 +1,11 @@
-# 常见错误调整
+---
+title: 常见错误调整
+date: 2020-12-27 18:25:00
+tags: [常用]
+categories: 常用
+---
+
+### 常见错误调整
 
 ##### tomcat X11Manager Error
 
