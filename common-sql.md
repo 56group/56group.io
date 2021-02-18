@@ -47,3 +47,10 @@ mysql> SELECT COUNT(*) TABLES, table_schema FROM information_schema.TABLES WHERE
 mysql> SET SQL_SAFE_UPDATES=0; // 解除
 mysql> SET SQL_SAFE_UPDATES=1; // 打开
 ```
+
+##### 更新MySQL用户密码规则
+
+```sql
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER;
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOUR_PASS';
+```

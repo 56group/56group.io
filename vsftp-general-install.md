@@ -48,6 +48,7 @@ pasv_max_port=6000
 ftpd_banner=Welcome to Ftp Server!
 pam_service_name=vsftpd
 write_enable=YES
+allow_writeable_chroot=YES
 ```
 
 ##### user_list
@@ -86,4 +87,27 @@ ftpuser
 ```
 shell> ls /etc/vsftpd
 chroot_list  ftpusers  user_list  vsftpd.conf  vsftpd.conf.bak  vsftpd_conf_migrate.sh
+```
+
+##### SELinux
+
+```shell
+shell> getsebool -a | grep ftp
+shell> setsebool -P allow_ftpd_anon_write on
+shell> setsebool -P allow_ftpd_full_access on
+```
+
+##### /etc/pam.d/vsftpd
+
+```
+#%PAM-1.0
+session    optional     pam_keyinit.so    force revoke
+auth       required	pam_listfile.so item=user sense=deny file=/etc/vsftpd/ftpusers onerr=succeed
+# 这个位置更改用户登录
+#auth       required	pam_shells.so
+auth       required	pam_nologin.so
+auth       include	password-auth
+account    include	password-auth
+session    required     pam_loginuid.so
+session    include	password-auth
 ```

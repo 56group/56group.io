@@ -41,3 +41,9 @@ net:
 setParameter:
    enableLocalhostAuthBypass: false
 ```
+
+##### liblzma
+
+```shell
+shell> yum install xz-compat-libs
+```
