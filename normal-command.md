@@ -24,6 +24,14 @@ mysql> CREATE USER 'dummy'@'localhost';
 CREATE SCHEMA `new_schema` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 ```
 
+##### MySQL安全模式
+
+```
+set sql_safe_updates = 0;
+UPDATE baoxiu_uc_login SET openid = '' WHERE deleteFlag = 0;
+set sql_safe_updates = 1;
+```
+
 ##### MySQL逻辑备份
 
 ```
