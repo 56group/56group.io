@@ -1,5 +1,5 @@
 ---
-title:  YAPI安装
+title: YAPI安装
 date: 2020-10-17 16:08:00
 tags: [YAPI, INSTALL]
 categories:  安装
