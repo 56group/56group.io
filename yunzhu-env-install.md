@@ -854,8 +854,8 @@ CREATE TABLE IF NOT EXISTS `lock_table`
     `transaction_id` BIGINT,
     `branch_id`      BIGINT       NOT NULL,
     `resource_id`    VARCHAR(256),
-    `table_name`     VARCHAR(32),
-    `pk`             VARCHAR(36),
+    `table_name`     VARCHAR(100),
+    `pk`             VARCHAR(100),
     `gmt_create`     DATETIME,
     `gmt_modified`   DATETIME,
     PRIMARY KEY (`row_key`),
@@ -1021,4 +1021,86 @@ services:
       - "./seata-server/resources/registry.conf:/seata-server/resources/registry.conf"
       - "./seata-server/logs:/root/logs/seata"
 ```
+
+##### 发布机器的NGINX配置
+
+```
+user  www;
+worker_processes  1;
+
+error_log  logs/error.log;
+error_log  logs/error.log  notice;
+error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server {
+        listen       80;
+        server_name  122.9.41.19;
+
+        #charset koi8-r;
+
+        access_log  logs/yunzhu.access.log  main;
+
+        location / {
+            root   /usr/local/www/yunzhu;
+            index  index.html;
+        }
+        
+        location /api/ {
+           proxy_set_header Host $http_host;
+	   proxy_set_header X-Real-IP $remote_addr;
+	   proxy_set_header REMOTE-HOST $remote_addr;
+	   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	   proxy_pass http://localhost:20000/;
+	}
+        
+        location /oauth/ {
+           proxy_set_header Host $http_host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header REMOTE-HOST $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_pass http://localhost:10007;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+    }
+}
+```
+
+### Sentinel安装
+
+### SkyWalking安装
 
