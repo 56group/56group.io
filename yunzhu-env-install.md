@@ -719,6 +719,76 @@ http {
 }
 ```
 
+##### 外部fastDFS域名配置(非docker)
+
+```
+shell> yum install zlib pcre zlib-devel pcre-devel openssl openssl-devel gcc -y
+shell> ./configure --prefix=/usr/local/nginx --pid-path=/usr/local/nginx/nginx.pid --with-http_ssl_module
+shell> make
+shell> make install
+shell> cd /usr/local/nginx/conf
+shell> cp nginx.conf nginx.conf.bak
+shell> echo "" > nginx.conf
+shell> vi nginx.conf
+```
+
+##### 外部nginx代理配置
+
+```
+#user  nobody;
+worker_processes  1;
+
+error_log  logs/error.log;
+error_log  logs/error.log  notice;
+error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  logs/access.log  main;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+
+    server {
+        listen       443 ssl;
+        server_name  fs.zhulin.xin;
+
+        #charset koi8-r;
+        ssl_certificate      /usr/local/nginx/conf/ssl/6738261_fs.zhulin.xin.pem;
+        ssl_certificate_key  /usr/local/nginx/conf/ssl/6738261_fs.zhulin.xin.key;
+        ssl_session_timeout  5m;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+        ssl_prefer_server_ciphers  on;
+
+        #charset koi8-r;
+
+        access_log  logs/host.access.log  main;
+
+        location / {
+	   proxy_pass http://120.46.145.155:7003;
+        }
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+}
+```
+
 ### Nacos服务安装
 
 ##### docker-compose安装
