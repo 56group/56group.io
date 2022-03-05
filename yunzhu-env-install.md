@@ -831,7 +831,8 @@ MYSQL_SERVICE_HOST=120.46.145.155
 MYSQL_SERVICE_DB_NAME=nacos_yunzhu
 MYSQL_SERVICE_PORT=3306
 MYSQL_SERVICE_USER=nacos
-MYSQL_SERVICE_PASSWORD=nacos@zhulin
+# 这个位置的密码绝对不能包含特殊字符
+MYSQL_SERVICE_PASSWORD=nacoszhulin
 MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false
 ```
 
