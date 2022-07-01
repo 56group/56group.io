@@ -129,7 +129,7 @@ innodb_log_file_size=1024M
 innodb_purge_threads=1
 innodb_lock_wait_timeout=3
 innodb_print_all_deadlocks=1
-innodb_buffer_pool_size=1024
+innodb_buffer_pool_size=1024M
 [mysqld_safe]
 log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
@@ -224,6 +224,7 @@ shell> docker run -ti --name storage -v /data/fastdfs/storage:/fastdfs/storage/d
 shell> docker cp storage:/fdfs_conf/storage.conf .
 shell> vi storage.conf # 更改tracker IP
 shell> docker cp storage.conf storage:/fdfs_conf
+shell> docker container start storage
 ```
 
 ##### storage.conf
