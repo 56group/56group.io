@@ -56,7 +56,7 @@ shell> /usr/bin/fdfs_storaged /etc/fdfs/storage.conf stop
 ##### storage.conf
 
 ```
-tracker_sever = XXX
+tracker_sever = 119.3.203.187:22122
 store_path0 = /var/fastdfs/files
 base_path = /var/fastdfs/storage
 ```
@@ -70,7 +70,7 @@ base_path=/var/fastdfs/tracker
 ##### client.conf
 
 ```
-tracker_server=
+tracker_server= 119.3.203.187:22122
 base_path = /var/fastdfs
 ```
 
