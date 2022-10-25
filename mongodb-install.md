@@ -5,7 +5,6 @@ tags: [MONGODB, 环境]
 categories: MongoDB
 ---
 
-
 ### MongoDB安装
 
 ```shell
@@ -90,7 +89,7 @@ net:
    bindIp: 127.0.0.1 # 外网访问 0.0.0.0 注意外网须开启认证
    port: 27017
 setParameter:
-   enableLocalhostAuthBypass: true
+   enableLocalhostAuthBypass: true # 在最开始初始化数据库用户的时候设置
 security:
    authorization: enabled
 ```
