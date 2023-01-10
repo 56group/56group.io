@@ -53,3 +53,20 @@ db.user.0=nacos
 db.password.0=YOUR_PASS
 ```
 
+##### Nacos开启认证(必须开启)[链接](https://nacos.io/zh-cn/docs/auth.html)]
+
+```shell
+nacos.core.auth.enabled=false
+```
+
+#### SpringBoot Cloud配置
+
+```yml
+spring:
+  cloud:
+    nacos:
+      username: nacos
+      password: 57$[jVnxO=
+```
+
+
