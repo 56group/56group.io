@@ -103,3 +103,12 @@ shell> yum install xz-compat-libs
 ##### [MongoDB用户](https://www.mongodb.com/docs/manual/tutorial/create-users/)
 
 ##### [配置选项](https://www.mongodb.com/docs/manual/reference/configuration-options)
+
+##### MongoDB Tools安装[下载]([Download MongoDB Command Line Database Tools | MongoDB](https://www.mongodb.com/try/download/database-tools))
+
+```shell
+shell> tar -xvf mongodb-database-tools-rhel70-x86_64-100.7.0.tgz
+shell> cd mongodb-database-tools-rhel70-x86_64-100.7.0
+shell> cp bin/* /usr/local/mongodb/bin/
+shell> ls /usr/local/mongodb/bin
+```
