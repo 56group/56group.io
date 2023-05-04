@@ -17,6 +17,16 @@ shell> cd libfastcommon-V1.0.58
 shell> ./make.sh clean && ./make.sh && ./make.sh install
 ```
 
+##### libserverframe(V6.09需要)安装
+
+```shell
+shell> unzip libserverframe-V1.1.21.zip
+shell> cd libserverframe-V1.1.21
+shell> ./make.sh clean
+shell> ./make.sh
+shell> ./make.sh install
+```
+
 ##### fastdfs安装
 
 [下载](https://gitee.com/fastdfs100/fastdfs/tags)
