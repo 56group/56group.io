@@ -535,7 +535,7 @@ shell> docker container start fdfs_nginx
 
 ##### mod_fastdfs.conf
 
-````
+```
 # connect timeout in seconds
 # default value is 30s
 connect_timeout=2
@@ -668,7 +668,7 @@ group_count = 0
 #storage_server_port=23000
 #store_path_count=1
 #store_path0=/home/yuqing/fastdfs
-````
+```
 
 ##### nginx.conf
 
@@ -780,7 +780,7 @@ http {
         access_log  logs/host.access.log  main;
 
         location / {
-	   proxy_pass http://120.46.145.155:7003;
+       proxy_pass http://120.46.145.155:7003;
         }
         error_page   500 502 503 504  /50x.html;
         location = /50x.html {
@@ -967,7 +967,7 @@ shell> sh nacos-config.sh -h YOUR_IP -p 8848 -g yunzhu -t YOUR_NAMESPACE_ID -u n
 # nacos配置中心seata空间内用配置信息
 ```
 
-#####  registry.conf
+##### registry.conf
 
 ```
 registry {
@@ -1142,15 +1142,15 @@ http {
             root   /usr/local/www/yunzhu;
             index  index.html;
         }
-        
+
         location /api/ {
            proxy_set_header Host $http_host;
-	   proxy_set_header X-Real-IP $remote_addr;
-	   proxy_set_header REMOTE-HOST $remote_addr;
-	   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	   proxy_pass http://localhost:20000/;
-	}
-        
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header REMOTE-HOST $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_pass http://localhost:20000/;
+    }
+
         location /oauth/ {
            proxy_set_header Host $http_host;
            proxy_set_header X-Real-IP $remote_addr;
@@ -1175,4 +1175,3 @@ http {
 ### Sentinel安装
 
 ### SkyWalking安装
-

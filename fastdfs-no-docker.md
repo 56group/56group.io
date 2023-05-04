@@ -1,8 +1,8 @@
 ---
 title: FastDFS非Docker安装
 date: 2022-06-30 15:03:00
-tags: [FASRDFS, INSTALL]
-categories: FASRDFS
+tags: [FASTDFS, INSTALL]
+categories: FASTDFS
 ---
 
 ### FastDFS安装
@@ -119,7 +119,7 @@ http.default_content_type = application/octet-stream
 
 # MIME types mapping filename
 # MIME types file format: MIME_type  extensions
-# such as:  image/jpeg	jpeg jpg jpe
+# such as:  image/jpeg    jpeg jpg jpe
 # you can use apache's MIME file: mime.types
 http.mime_types_filename = mime.types
 
@@ -152,6 +152,42 @@ http.multi_range.enabed = true
 tracker_server=119.3.203.187:22122
 store_path0=/var/fastdfs/files
 #store_path0=/home/yuqing/fastdfs
+```
+
+##### /group[0-9]访问配置
+
+```shell
+shell> vi /etc/fdfs/tracker.conf
+# 更改url_have_group_name = true,原来是false
+# 重启服务
+shell> cd /usr/local/fdfs_nginx/conf
+shell> vi nginx.conf
+# 原来路径是/M00,更改为~/group([0-9])/M00
+shell> cd ..
+shell> sbin/nginx -s reload
+# 上传测试文件
+shell> /usr/bin/fdfs_test /etc/fdfs/client.conf upload fdfs_test.txt
+```
+
+##### /group[0-9]路径添加
+
+```shell
+# nginx配置更改
+location ~/group[0-])/M00 {
+    root /var/fastdfs/storage/data;
+    ngx_fastdfs_module;
+ }
+# mod_fastdfs.conf url_have_group_name更改为true
+url_have_group_name = true
+# 重启服务
+shell> /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf stop
+shell> /usr/bin/fdfs_storaged /etc/fdfs/storage.conf stop
+shell> /usr/bin/fdfs_storaged /etc/fdfs/storage.conf start
+shell> /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf start
+shell> /usr/local/fdfs_nginx/sbin/nginx -s stop
+shell> 
+# 测试
+/usr/bin/fdfs_test /etc/fdfs/client.conf upload hello.txt
 ```
 
 ##### [参考文档](https://gitee.com/fastdfs100/fastdfs/blob/master/INSTALL)

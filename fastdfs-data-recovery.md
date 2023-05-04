@@ -1,8 +1,8 @@
 ---
 title: FastDFS数据恢复
 date: 2022-07-01 09:51:00
-tags: [FASRDFS]
-categories: FASRDFS
+tags: [FASTDFS]
+categories: FASTDFS
 ---
 
 ### FastDFS数据恢复

@@ -12,7 +12,7 @@ categories: SEATA
 ```shell
 shell> tar -xvf seata-server-1.5.2.tar.gz
 shell> mv seata /usr/local
-shell> myl -uroot -proot
+shell> mysql -uroot -proot
 mysql> CREATE SCHEMA `dlut_seata` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 mysql> CREATE USER 'seata'@'%' IDENTIFIED BY 'seata123dlut';
 mysql> GRANT ALL PRIVILEGES ON dlut_seata.* TO 'seata'@'%' WITH GRANT OPTION;
@@ -43,8 +43,12 @@ shell> sh nacos-config.sh -h YOUR_NACOS_IP -p YOUR_NACOS_PORT -g YOUR_NACOS_GROU
 
 ```shell
 shell> cd /usr/local/seata
-shell> bash  /usr/local/seata/bin/seata-server.sh
+# 注意1.5.2不好用
+shell> bash /usr/local/seata/bin/seata-server.sh
 shell> tail -f /usr/local/seata/logs/start.out
+# 注意1.5.2需要如下方式启动
+shell> cd /usr/local/seata/bin
+shell> ./seata-server.sh
 ```
 
 ##### 在nacos中查看对应实例是否启动

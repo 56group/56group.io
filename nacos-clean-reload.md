@@ -15,4 +15,3 @@ shell> cd /data/nacos-docker/
 shell> docker-compose -f example/standalone-mysql-8.yaml up -d
 shell> docker exec -it nacos /bin/bash
 ```
-
