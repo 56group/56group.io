@@ -8,6 +8,7 @@ categories:  常用
 ### 常用命令
 
 ##### MySQL Create user
+
 ```
 mysql> CREATE USER 'monty'@'localhost' IDENTIFIED BY 'some_pass';
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'monty'@'localhost' WITH GRANT OPTION;
@@ -111,6 +112,7 @@ shell> tar -cvf YOUR_STORE_NAME_`date "+%Y-%m-%d"`.tar.gz YOUR_STORE_PATH/YOUR_D
 
 ```
 shell> mongorestore -d YOUR_DB_NAME -o YOUR_DUMP_PATH
+shell> 
 ```
 
 ##### MongoDB日志文件处理
