@@ -53,7 +53,7 @@ db.user.0=nacos
 db.password.0=YOUR_PASS
 ```
 
-##### Nacos开启认证(必须开启)[链接](https://nacos.io/zh-cn/docs/auth.html)]
+##### Nacos开启认证(必须开启)[[链接](https://nacos.io/zh-cn/docs/auth.html)]
 
 ```shell
 nacos.core.auth.enabled=false
@@ -68,5 +68,38 @@ spring:
       username: nacos
       password: 57$[jVnxO=
 ```
+
+##### Nacos安全配置更改可自动刷新,不需重启
+
+```shell
+# conf/application.properties
+nacos.core.auth.server.identity.key=YOUR_KEY
+nacos.core.auth.server.identity.value=YOUR_VALUE
+```
+
+##### Nacos安全配置,需要重启
+
+###### 先把token刷新时间更换了,这样服务重启后token不会过长时间不更新,导致服务链接不了
+
+```shell
+# conf/application.properties
+nacos.core.auth.plugin.nacos.token.expire.seconds=60
+```
+
+###### 待服务运行一段时间,时间为更改token刷新值之前的token的刷新时间+加上现在的时间后,更改secret.key,key的要求50字符串,base64加密
+
+```shell
+# conf/application.properties
+nacos.core.auth.plugin.nacos.token.secret.key=YOUR_SECRET_KEY
+```
+
+##### ##### 重启Nacos
+
+```shell
+shell> /usr/local/nacos/bin/shutdown.sh
+shell> sh /usr/local/nacos/bin/startup.sh -m standalone
+```
+
+
 
 
