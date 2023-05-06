@@ -86,7 +86,7 @@ nacos.core.auth.server.identity.value=YOUR_VALUE
 nacos.core.auth.plugin.nacos.token.expire.seconds=60
 ```
 
-###### 待服务运行一段时间,时间为更改token刷新值之前的token的刷新时间+加上现在的时间后,更改secret.key,key的要求50字符串,base64加密
+###### 重启服务,待服务运行一段时间,时间为更改token刷新值之前的token的刷新时间+加上现在的时间后,更改secret.key,key的要求50字符串,base64加密
 
 ```shell
 # conf/application.properties
@@ -105,5 +105,3 @@ shell> sh /usr/local/nacos/bin/startup.sh -m standalone
 [安全项更改]([Authorization](https://nacos.io/zh-cn/docs/v2/guide/user/auth.html))
 
 [secret.key更换](https://nacos.io/zh-cn/blog/announcement-token-secret-key.html)
-
-
