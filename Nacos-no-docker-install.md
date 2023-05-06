@@ -100,6 +100,10 @@ shell> /usr/local/nacos/bin/shutdown.sh
 shell> sh /usr/local/nacos/bin/startup.sh -m standalone
 ```
 
+##### 参考链接
 
+[安全项更改]([Authorization](https://nacos.io/zh-cn/docs/v2/guide/user/auth.html))
+
+[secret.key更换](https://nacos.io/zh-cn/blog/announcement-token-secret-key.html)
 
 
