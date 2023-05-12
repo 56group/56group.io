@@ -109,7 +109,7 @@ seata:
         datasource: druid
         dbType: mysql
         driverClassName: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://202.118.69.50:3306/NACOS_DB?useUnicode=true&rewriteBatchedStatements=true
+        url: jdbc:mysql://202.118.69.50:3306/NACOS_DB?useUnicode=true&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
         user: SEATA_DB_USER
         password: SEATA_DB_PASS
         minConn: 5
@@ -225,6 +225,7 @@ store.db.datasource=druid
 store.db.dbType=mysql
 store.db.driverClassName=com.mysql.jdbc.Driver
 store.db.url=jdbc:mysql://YOUR_MYSQL_IP:3306/YOUR_DB?useUnicode=true&rewriteBatchedStatements=true
+# jdbc:mysql://YOUR_MYSQL_IP:3306/YOUR_DB?useUnicode=true&characterEncoding=utf8&useSSL=false&&serverTimezone=UTC
 store.db.user=YOUR_USER
 store.db.password=YOUR_PASS
 store.db.minConn=5
@@ -269,3 +270,20 @@ metrics.registryType=compact
 metrics.exporterList=prometheus
 metrics.exporterPrometheusPort=9898
 ```
+
+##### Seata的nacos的对外IP配置
+
+```shell
+shell> cd /usr/local/seata
+shell> cd bin
+shell> vi seata-server.sh 
+```
+
+##### seata-server.sh添加IP配置
+
+```shell
+export SEATA_IP="YOUR_IP"
+# resolve links - $0 may be a softlink (在此行之上添加)
+```
+
+> 如果使用MySQL需要注意nacos的seata的配置store.db.driverClassName=com.mysql.cj.jdbc.Driver需要加上cj

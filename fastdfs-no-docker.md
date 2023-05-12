@@ -115,6 +115,13 @@ shell> /usr/bin/fdfs_test /etc/fdfs/client.conf upload /root/a.txt
 ##### nginx.conf
 
 ```
+# 禁止访问不安全的文件类型
+location ~ \.(php|php5|sh|pl|py|jar|exe|js|xml|html|jsp|xhtml|txt|sh*)$ {
+    deny all;
+}
+# 智能访问jpg或png类型文件
+#location ~/group([0-9])/M00/.*.\.(jpg|png)$
+# 可以访问所有类型文件
 location /M00 {
     root /var/fastdfs/storage/data; # ${base_path}/data
     ngx_fastdfs_module;
@@ -183,7 +190,10 @@ shell> /usr/bin/fdfs_test /etc/fdfs/client.conf upload fdfs_test.txt
 
 ```shell
 # nginx配置更改
-location ~/group[0-])/M00 {
+# 智能访问jpg或png类型文件
+#location ~/group([0-9])/M00/.*.\.(jpg|png)$
+# 可以访问所有类型文件
+location ~/group[0-9])/M00 {
     root /var/fastdfs/storage/data;
     ngx_fastdfs_module;
  }
