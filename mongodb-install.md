@@ -15,7 +15,7 @@ shell> ln -s /usr/local/mongodb-linux-x86_64-rhel62-4.0.1/ /usr/local/mongodb
 shell> cd mongodb
 shell> rm -rf GNU-AGPL-3.0 LICENSE-Community.txt MPL-2 README THIRD-PARTY-NOTICES
 shell> mkdir data
-shell> vi mongo.conf # 配置内容如文件 mongo.conf
+shell> vi mongo.conf # 配置内容如文件 mongo.conf 此时需要关闭验证,建立完超管用户后更改配置文件开启验证
 shell> bin/mongod -f mongo.conf
 shell> ps aux | grep mongod
 shell> bin/mongo
