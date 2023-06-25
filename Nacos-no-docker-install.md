@@ -100,6 +100,10 @@ shell> /usr/local/nacos/bin/shutdown.sh
 shell> sh /usr/local/nacos/bin/startup.sh -m standalone
 ```
 
+##### ##### nacos用户密码
+
+- nacos默认的用户密码是nacos/nacos,登陆后修改密码
+
 ##### 参考链接
 
 [安全项更改]([Authorization](https://nacos.io/zh-cn/docs/v2/guide/user/auth.html))

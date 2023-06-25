@@ -5,11 +5,7 @@ tags: [安装, MYSQL]
 categories:  MYSQL
 ---
 
-
-
 ### MySQL 8安装
-
-
 
 ##### MySQL数据库环境安装
 
@@ -77,7 +73,7 @@ max_connections = 1000
 log-queries-not-using-indexes
 log_throttle_queries_not_using_indexes = 10
 default-time-zone = '+8:00'
-#lower_case_table_names = 1 # 根据自己需要更改
+lower_case_table_names = 1 # 根据自己需要更改
 #innodb_large_prefix = 1 # 根据自己需要更改
 # INNODB
 innodb_strict_mode=1
@@ -108,10 +104,3 @@ pid-file=/var/run/mysqld/mysqld.pid
 export MYSQL_HOME=/usr/local/mysql
 export PATH=$MYSQL_HOME/bin:$PATH
 ```
-
-
-
-
-
-
-
