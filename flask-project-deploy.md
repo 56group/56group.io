@@ -1,12 +1,32 @@
 ---
 title: Flask项目发布
 date: 2023-07-20 18:50:00
-tags: [INSTALL,FLASK]
+tags: [INSTALL,FLASK,PYTHON]
 categories: FLASK
 
 ---
 
 ### Flask项目发布
+
+###### 安装到指定目录openSSL 1.1.1
+
+```shell
+shell> tar -xvf openssl-1.1.1w.tar.gz
+shell> cd openssl-1.1.1w
+shell> ./config --prefix=/usr/local/openssl-1.1.1w
+shell> make
+shell> make install
+# 在最后面加一行
+shell> vi /etc/ld.so.conf
+shell> ldconfig
+shell> ldconfig -v | grep ssl
+```
+
+##### /etc/ld.so.conf
+
+```shell
+/usr/local/openssl-1.1.1w/lib # 在最后一行添加
+```
 
 ##### 安装OpenSSL 1.1.1[下载](https://www.openssl.org/source/openssl-1.1.1u.tar.gz)
 
@@ -25,13 +45,32 @@ shell> make install
 ```shell
 shell> yum -y groupinstall "Development tools"
 shell> yum -y install zlib-devel bzip2-devel openssl11 openssl11-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+# 如果指定openssl安装位置用下面的安装依赖,如果不指定用上面
+shell> yum -y install zlib-devel bzip2-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 shell> yum install -y libffi-devel zlib1g-dev
 shell> yum install zlib* -y
 shell> tar -xvf Python-3.10.10.tar.xz
 shell> cd Python-3.10.10
 shell> ./configure --prefix=/usr/local/python310 --with-ssl
+# 如果安装的openssl是指定安装目录,例如安装在/usr/local/openssl-1.1.1w,需调整setup代码,如果不是指定目录安装则不需要更改setup源码
+# 指定openssl目录的安装方式,需要完成下面下面的Setup文件(下面两步)调整才能继续make
 shell> make
 shell> make install
+```
+
+##### Setup配置指定openssl目录
+
+```shell
+# 需要注意的是先configure,然后不要make,然后再configure后的目录会有一个Modules目录出现
+shell> cd Modules
+shell> vi Setup
+shell> export LD_LIBRARY_PATH=/usr/local/openssl-1.1.1w/lib:$LD_LIBRARY_PATH
+```
+
+##### Setup修改地方
+
+```
+
 ```
 
 ##### Gunicorn安装 [官网文档](https://docs.gunicorn.org/en/stable/settings.html#config)
@@ -40,14 +79,28 @@ shell> make install
 # 上传代码到服务器 打包的项目代码中不包含python的虚环境
 shell> unzip YOUR_PROJECT.zip
 shell> cd YOUR_PROJECT_DIR
-shell> /usr/local/python310/bin/virtualenv -p /usr/local/python310/bin/python3
+shell> /usr/local/python310/bin/virtualenv -p /usr/local/python310/bin/python3 venv
 shell> source venv/bin/activate
-shell> pip3 install -r requirement.txt
+shell> pip3 install -r requirements.txt
 shell> pip3 install gunicorn greenlet eventlet gevent gthread
 shell> vi gunicorn_config.py
+# 下面的app:app,第一个app指的是app.py,第二个app指app.py文件中的Flask的实例化对象名
 shell> gunicorn -c gunicorn_config.py app:app
 shell> netstat -npl | grep YOUR_PORT
 shell> ps aux | grep YOUR_PROC
+```
+
+##### ##### 安装图片中文字体
+
+```shell
+shell> cd YOUR_PROJECT_VENV
+shell> cd venv/lib/python3.10/site-packages/matplotlib/mpl-data/fonts/ttf
+# 上传SimSun.ttf文件到此目录
+shell>  ll | grep Sim
+shell> cd ~
+shell> cd .cache
+shell> cd matlibplot
+shell> rm -rf *
 ```
 
 ##### supervisor安装[官网](https://github.com/Supervisor/supervisor)
@@ -79,8 +132,6 @@ shell> vi nginx.conf
 shell> /usr/local/nginx/sbin/nginx -s reload
 # 通过域名访问服务
 ```
-
-
 
 ##### gunicorn_config.py
 
