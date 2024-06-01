@@ -121,7 +121,3 @@ shell> echo "hello world" > a.txt
 # 查看数据同步日志文件
 shell> tail -f 
 ```
-
-
-
-

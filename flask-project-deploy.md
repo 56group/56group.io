@@ -70,7 +70,10 @@ shell> export LD_LIBRARY_PATH=/usr/local/openssl-1.1.1w/lib:$LD_LIBRARY_PATH
 ##### Setup修改地方
 
 ```
-
+OPENSSL=/usr/local/openssl-1.1.1w
+_ssl _ssl.c \
+    -I$(OPENSSL)/include -L$(OPENSSL)/lib \
+    -lssl -lcrypto
 ```
 
 ##### Gunicorn安装 [官网文档](https://docs.gunicorn.org/en/stable/settings.html#config)
