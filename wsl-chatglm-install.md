@@ -12,7 +12,7 @@ categories: LLM
 ```shell
 shell> wget https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tar.xz
 shell> tar -xvf Python-3.11.9.tar.xz
-shell> sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
+shell> sudo apt install build-essential  zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
 shell> cd Python-3.11.9/
 shell> ./configure --prefix=/home/hellolnd/python3119 --enable-optimizations
 shell> make
@@ -53,5 +53,3 @@ shell> cp /usr/lib/python3.10/lib-dynload/_bz2.cpython-310-x86_64-linux-gnu.so /
 shell> cd venv/lib/python3.11/site-packages/
 shell> mv _bz2.cpython-310-x86_64-linux-gnu.so _bz2.cpython-311-x86_64-linux-gnu.so
 ```
-
-
