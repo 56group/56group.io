@@ -10,6 +10,7 @@ categories: DOCKER
 ```shell
 shell> yum install -y yum-utils device-mapper-persistent-data lvm2
 shell> yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+shell> yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 shell> yum install docker-ce docker-ce-cli containerd.io
 shell> systemctl start docker
 shell> curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -24,6 +25,3 @@ EOF
 shell> systemctl daemon-reload 
 shell> systemctl restart docker
 ```
-
-
-
