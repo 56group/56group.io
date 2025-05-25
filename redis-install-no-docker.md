@@ -42,9 +42,37 @@ requirepass YOUR_PASS # 访问密码
 port 6379
 dir ./
 databases 16
-maxmemory 1G # 配置最大使用内存大小
+maxmemory 1gb # 配置最大使用内存大小
+maxmemory-policy volatile-lru # 配置淘汰策略
 #logfile "" # 注释
 logfile "redis.log" # 新增 配置日志记录文件
+```
+
+##### 需要注意redis是否开启持久化
+
+```
+# RDB 配置
+save 10 1                # 10秒内1次修改触发快照（加速测试）
+dbfilename dump_test.rdb # 测试专用文件名
+dir /tmp/redis_test      # 指定测试目录（避免干扰生产数据）
+
+# AOF 配置
+appendonly yes
+appendfilename "appendonly_test.aof"
+appendfsync everysec     # 平衡性能与安全性
+auto-aof-rewrite-percentage 50  # 降低重写阈值
+auto-aof-rewrite-min-size 16mb  # 降低最小重写大小
+
+# 混合模式（可选）
+aof-use-rdb-preamble yes
+```
+
+##### 开启持久化策略
+
+```shell
+shell> vi /etc/sysctl.conf
+vm.overcommit_memory = 1 # 添加这个值
+shell> sysctl -p
 ```
 
 ##### redis.service
@@ -62,4 +90,3 @@ PrivateTmp=true
 [Install]
 WantedBy=multi-user.target
 ```
-

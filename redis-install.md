@@ -1,9 +1,12 @@
 ---
+
 title:  Redis安装+远程访问
 date: 2017-12-02 14:36:00
 tags: [REDIS, 安装]
 categories:  Linux
+
 ---
+
 ### Redis Install
 
 ##### Redis Install
@@ -24,6 +27,7 @@ shell> vi /etc/init.d/redis # 更改命令执行路径
 shell> chkconfig redis on
 shell> service redis start
 ```
+
 ##### redis启动脚本更改
 
 ```
@@ -34,6 +38,7 @@ shell> service redis start
 EXEC=/usr/local/redis/src/redis-server # 更改脚本路径
 CLIEXEC=/usr/local/redirs/src/redis-cli # 更改脚本路径
 ```
+
 ##### 设置允许远程访问
 
 ```
